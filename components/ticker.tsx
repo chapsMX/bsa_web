@@ -21,8 +21,8 @@ export function Ticker() {
   const doubledResults = [...results, ...results]
 
   return (
-    <div className="bg-primary border-b border-primary-foreground/20 overflow-hidden">
-      <div className="flex animate-ticker">
+    <div className="bg-primary border-b border-primary-foreground/20 overflow-hidden group">
+      <div className="flex animate-ticker group-hover:[animation-play-state:paused]">
         {doubledResults.map((result, index) => (
           <div
             key={index}

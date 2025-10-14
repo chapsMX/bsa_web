@@ -13,7 +13,7 @@ export function CTASection() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
             <Button asChild size="lg" variant="secondary" className="text-lg px-8 py-6">
-              <Link href="https://discord.com" target="_blank" rel="noopener noreferrer">
+              <Link href="https://discord.com/invite/buildonbase" target="_blank" rel="noopener noreferrer">
                 Join Discord
               </Link>
             </Button>
@@ -23,7 +23,7 @@ export function CTASection() {
               variant="outline"
               className="text-lg px-8 py-6 bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
             >
-              <Link href="https://farcaster.xyz" target="_blank" rel="noopener noreferrer">
+              <Link href="https://farcaster.xyz/chaps" target="_blank" rel="noopener noreferrer">
                 Follow on Farcaster
               </Link>
             </Button>

@@ -32,16 +32,16 @@ export function Footer() {
 
           <div className="flex items-center gap-4">
             <Link
-              href="https://twitter.com"
+              href="https://x.com/chapsmx"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 rounded-lg bg-muted hover:bg-muted/80 transition-colors"
-              aria-label="Twitter"
+              aria-label="Twitter / X"
             >
               <Twitter className="w-5 h-5" />
             </Link>
             <Link
-              href="https://farcaster.xyz"
+              href="https://farcaster.xyz/chaps"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 rounded-lg bg-muted hover:bg-muted/80 transition-colors"
@@ -50,7 +50,7 @@ export function Footer() {
               <MessageCircle className="w-5 h-5" />
             </Link>
             <Link
-              href="https://discord.com"
+              href="https://discord.com/invite/buildonbase"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 rounded-lg bg-muted hover:bg-muted/80 transition-colors"
