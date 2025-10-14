@@ -2,122 +2,168 @@
 
 import { Card, CardContent } from "@/components/ui/card"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
-import { ChevronLeft, ChevronRight, Star } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { useState, useEffect } from "react"
+import { Quote, MapPin, DollarSign, Calendar } from "lucide-react"
+import { useEffect, useRef, useState } from "react"
 
 const testimonials = [
   {
-    name: "Alex M.",
+    name: "Alex Martinez",
     initials: "AM",
-    text: "Super fun and easy to use! I started picking games and won in my first week.",
+    location: "Miami, FL",
+    sport: "NFL Fan",
+    earnings: "$2,450",
+    duration: "3 months",
+    text: "I've been into sports betting for years, but Base Sports Arena changed everything. The transparency of blockchain and instant USDC payouts are game-changers. Won my first pool in week one and haven't looked back.",
     rating: 5,
   },
   {
-    name: "Jordan L.",
+    name: "Jordan Lee",
     initials: "JL",
-    text: "Finally a sports app that's transparent and rewards skill. I'm hooked.",
+    location: "Austin, TX",
+    sport: "NBA Enthusiast",
+    earnings: "$1,890",
+    duration: "2 months",
+    text: "Finally, a platform that rewards actual sports knowledge instead of luck. The onchain verification means no disputes, no delays. Just pure competition and instant rewards.",
     rating: 5,
   },
   {
-    name: "Chris P.",
+    name: "Chris Parker",
     initials: "CP",
-    text: "I never miss a week — it's so exciting to track my picks live.",
-    rating: 5,
+    location: "Denver, CO",
+    sport: "Multi-Sport",
+    earnings: "$3,200",
+    duration: "4 months",
+    text: "Tracking my picks in real-time is addictive. The community is amazing, and competing with friends adds a whole new level of excitement to game day. Best sports platform I've used.",
+    rating: 4,
   },
   {
-    name: "Taylor S.",
+    name: "Taylor Sullivan",
     initials: "TS",
-    text: "Competing with friends and winning USDC is the best part.",
+    location: "Seattle, WA",
+    sport: "Premier League",
+    earnings: "$1,650",
+    duration: "6 weeks",
+    text: "As someone new to crypto, Base Sports Arena made it incredibly easy. Connected my wallet, made my picks, and won USDC in my third week. The interface is clean and intuitive.",
     rating: 5,
   },
   {
-    name: "Morgan D.",
+    name: "Morgan Davis",
     initials: "MD",
-    text: "Base Sports Arena makes every game more thrilling.",
+    location: "Chicago, IL",
+    sport: "Fantasy Pro",
+    earnings: "$4,100",
+    duration: "5 months",
+    text: "I've tried every fantasy platform out there. Base Sports Arena combines the best of DFS with blockchain transparency. Weekly pools keep things fresh, and the prizes are real.",
     rating: 5,
+  },
+  {
+    name: "Sam Rivera",
+    initials: "SR",
+    location: "Phoenix, AZ",
+    sport: "College Football",
+    earnings: "$980",
+    duration: "1 month",
+    text: "Just started last month and already hooked. The fact that everything runs on Base means fast transactions and low fees. Love the competitive atmosphere and fair play.",
+    rating: 4,
   },
 ]
 
 export function Testimonials() {
-  const [currentIndex, setCurrentIndex] = useState(0)
+  const [isVisible, setIsVisible] = useState(false)
+  const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % testimonials.length)
-    }, 5000)
-    return () => clearInterval(interval)
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+        }
+      },
+      { threshold: 0.1 }
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current)
+      }
+    }
   }, [])
 
-  const goToPrevious = () => {
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)
-  }
-
-  const goToNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length)
-  }
-
   return (
-    <section className="py-12 bg-muted/50">
+    <section ref={sectionRef} className="py-20 bg-background">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12 space-y-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-balance">Why users play Base Sports Arena</h2>
-          <p className="text-lg text-muted-foreground">Join thousands of sports fans winning on Base</p>
+        <div className="text-center mb-16 space-y-4">
+          <h2 className="text-5xl md:text-6xl font-bold text-foreground">What Players Say</h2>
+          <p className="text-xl text-muted-foreground">Real stories from real winners on Base</p>
         </div>
 
-        <div className="max-w-4xl mx-auto relative">
-          <div className="overflow-hidden">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+          {testimonials.map((testimonial, index) => (
             <div
-              className="flex transition-transform duration-500 ease-in-out"
-              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+              key={index}
+              className={`transition-all duration-500 ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+              }`}
+              style={{ transitionDelay: `${index * 100}ms` }}
             >
-              {testimonials.map((testimonial, index) => (
-                <div key={index} className="w-full flex-shrink-0 px-4">
-                  <Card className="hover:shadow-xl transition-all border-2 border-accent/20 bg-gradient-to-br from-card to-card/50">
-                    <CardContent className="p-8 space-y-6">
-                      <div className="flex justify-center gap-1">
-                        {[...Array(testimonial.rating)].map((_, i) => (
-                          <Star key={i} className="w-5 h-5 fill-accent text-accent" />
-                        ))}
-                      </div>
-                      <p className="text-xl text-center leading-relaxed font-medium">"{testimonial.text}"</p>
-                      <div className="flex items-center justify-center gap-3">
-                        <Avatar className="border-2 border-accent">
-                          <AvatarFallback className="bg-gradient-to-br from-primary to-accent text-primary-foreground font-bold">
-                            {testimonial.initials}
-                          </AvatarFallback>
-                        </Avatar>
-                        <span className="font-semibold text-lg">{testimonial.name}</span>
-                      </div>
-                    </CardContent>
-                  </Card>
+              <Card className="relative overflow-hidden bg-card border-2 border-border hover:border-primary/50 transition-all hover:shadow-2xl h-full">
+                {/* Quote Icon */}
+                <div className="absolute top-4 right-4 opacity-10">
+                  <Quote className="w-16 h-16 text-primary" />
                 </div>
-              ))}
+
+                <CardContent className="p-6 space-y-4 relative z-10">
+                  {/* Avatar and Name */}
+                  <div className="flex items-center gap-3">
+                    <Avatar className="w-12 h-12">
+                      <AvatarFallback className="bg-[#0000FF] text-white font-bold text-lg">
+                        {testimonial.initials}
+                      </AvatarFallback>
+                    </Avatar>
+                    <div className="flex-1">
+                      <h3 className="font-bold text-foreground">{testimonial.name}</h3>
+                      <p className="text-sm text-muted-foreground flex items-center gap-1">
+                        <MapPin className="w-3 h-3" />
+                        {testimonial.location}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Testimonial Text */}
+                  <p className="text-sm text-muted-foreground leading-relaxed">"{testimonial.text}"</p>
+
+                  {/* Stats */}
+                  <div className="pt-4 border-t border-border space-y-2">
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-muted-foreground flex items-center gap-1">
+                        <DollarSign className="w-4 h-4 text-primary" />
+                        Total Earnings
+                      </span>
+                      <span className="font-bold text-primary">{testimonial.earnings}</span>
+                    </div>
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-muted-foreground flex items-center gap-1">
+                        <Calendar className="w-4 h-4" />
+                        Playing Since
+                      </span>
+                      <span className="font-semibold text-foreground">{testimonial.duration}</span>
+                    </div>
+                  </div>
+
+                  {/* Sport Badge */}
+                  <div className="pt-2">
+                    <span className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-semibold rounded-full">
+                      {testimonial.sport}
+                    </span>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
-          </div>
-
-          <div className="flex items-center justify-center gap-4 mt-8">
-            <Button variant="outline" size="icon" onClick={goToPrevious} className="rounded-full bg-transparent">
-              <ChevronLeft className="w-4 h-4" />
-            </Button>
-
-            <div className="flex gap-2">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentIndex(index)}
-                  className={`w-2 h-2 rounded-full transition-all ${
-                    index === currentIndex ? "bg-primary w-8" : "bg-border"
-                  }`}
-                  aria-label={`Go to testimonial ${index + 1}`}
-                />
-              ))}
-            </div>
-
-            <Button variant="outline" size="icon" onClick={goToNext} className="rounded-full bg-transparent">
-              <ChevronRight className="w-4 h-4" />
-            </Button>
-          </div>
+          ))}
         </div>
       </div>
     </section>
