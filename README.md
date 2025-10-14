@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🏟️ Base Sports Arena
 
-## Getting Started
+**Tagline:**  
+_Your arena. Your pick. Your win._
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 📣 Overview
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Base Sports Arena (BSA)** is the first fully onchain sports picks platform built on the **Base** blockchain. It transforms the way fans engage with their favorite leagues by allowing them to **predict the outcomes of weekly games** and compete for rewards — all in a transparent, trustless, and global environment.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Fans don’t just watch here — they **pick, compete, and win**.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🧱 Project Description
 
-To learn more about Next.js, take a look at the following resources:
+This repository contains the **official landing page** for Base Sports Arena. The website is designed to introduce users to the platform, explain how it works, and serve as the main entry point before accessing the dApp.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### ✨ Key Features
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- 🏈 **How It Works:** A simple, 4-step explanation of how users can participate and win.  
+- 💬 **Testimonials:** Real user stories showcasing how easy, fun, and rewarding BSA is.  
+- ❓ **FAQ:** Everything users need to know about safety, blockchain, prizes, and more.  
+- 📊 **Live Ticker:** Real-time scores of weekly games displayed at the top of the page.  
+- 🔗 **Navigation:** Access to “How to Play”, “About”, “Roadmap”, “Help Center”, and links to social platforms.  
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🌐 Tech Stack
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Frontend Framework:** [Next.js](https://nextjs.org/)  
+- **Styling:** Tailwind CSS / shadcn/ui  
+- **TypeScript:** For strong type safety  
+- **Hosting:** [Vercel](https://vercel.com/)  
+
+---
+
+## 📜 Roadmap
