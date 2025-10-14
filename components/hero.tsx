@@ -42,7 +42,7 @@ export function Hero() {
               size="lg" 
               className="text-xl px-12 py-8 bg-primary hover:bg-primary/90 hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl group"
             >
-              <Link href="/app" className="flex items-center gap-2">
+              <Link href="/picks" className="flex items-center gap-2">
                 Start Picking
                 <ChevronRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
               </Link>
