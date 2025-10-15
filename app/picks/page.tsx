@@ -7,7 +7,7 @@ import { GameCard } from '@/components/game-card'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { NFL_WEEK_7_GAMES, POOL_STATS } from '@/lib/data/nfl-week-7'
-import { sortGamesByTime } from '@/lib/utils/game-utils'
+import { sortGamesByTime, groupGamesByDay } from '@/lib/utils/game-utils'
 import { Trophy, ArrowRight } from 'lucide-react'
 import { saveCurrentPicks, getCurrentPicks } from '@/lib/storage'
 
@@ -16,6 +16,7 @@ export default function PicksPage() {
   const [isLoading, setIsLoading] = useState(true)
 
   const sortedGames = sortGamesByTime(NFL_WEEK_7_GAMES)
+  const gamesByDay = groupGamesByDay(sortedGames)
   const totalGames = sortedGames.length
   const picksCount = Object.keys(picks).length
   const allPicksComplete = picksCount === totalGames
@@ -131,16 +132,34 @@ export default function PicksPage() {
             </div>
           </div>
 
-          {/* Games List - Single Column */}
-          <div className="max-w-4xl mx-auto space-y-4">
-            {sortedGames.map((game) => (
-              <GameCard
-                key={game.id}
-                game={game}
-                selectedTeamId={picks[game.id]}
-                onSelectTeam={(teamId) => handleSelectTeam(game.id, teamId)}
-              />
-            ))}
+          {/* Games List - Grouped by Day */}
+          <div className="max-w-4xl mx-auto space-y-6">
+            {Object.entries(gamesByDay).map(([day, games]) => {
+              if (games.length === 0) return null
+              
+              return (
+                <div key={day} className="space-y-3">
+                  {/* Day Header */}
+                  <div className="flex items-center gap-3">
+                    <h2 className="text-xl font-bold text-foreground">{day}</h2>
+                    <div className="flex-1 h-px bg-border"></div>
+                    <span className="text-sm text-muted-foreground">{games.length} game{games.length !== 1 ? 's' : ''}</span>
+                  </div>
+                  
+                  {/* Games for this day */}
+                  <div className="space-y-3">
+                    {games.map((game) => (
+                      <GameCard
+                        key={game.id}
+                        game={game}
+                        selectedTeamId={picks[game.id]}
+                        onSelectTeam={(teamId) => handleSelectTeam(game.id, teamId)}
+                      />
+                    ))}
+                  </div>
+                </div>
+              )
+            })}
           </div>
 
           {/* Bottom CTA */}

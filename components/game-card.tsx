@@ -56,7 +56,7 @@ export function GameCard({
         onClick={() => canSelect && onSelectTeam(team.id)}
         disabled={isDisabled}
         className={cn(
-          'flex-1 flex flex-col items-center gap-2 p-4 rounded-lg border-2 transition-all',
+          'flex-1 flex flex-col items-center gap-1.5 p-3 rounded-lg border-2 transition-all',
           'hover:shadow-md relative',
           isSelected
             ? 'border-primary bg-primary/10 shadow-md ring-2 ring-primary ring-offset-2'
@@ -86,7 +86,7 @@ export function GameCard({
         )}
 
         {/* Team Logo */}
-        <div className="relative w-16 h-16 flex-shrink-0">
+        <div className="relative w-12 h-12 flex-shrink-0">
           <Image
             src={team.logo || '/svg/default-team.svg'}
             alt={`${team.city} ${team.name}`}
@@ -97,10 +97,10 @@ export function GameCard({
 
         {/* Team Info */}
         <div className="text-center w-full">
-          <div className="font-bold text-base leading-tight">{team.city}</div>
-          <div className="text-sm text-muted-foreground">{team.name}</div>
+          <div className="font-bold text-sm leading-tight">{team.city}</div>
+          <div className="text-xs text-muted-foreground">{team.name}</div>
           {record && (
-            <div className="text-xs text-muted-foreground mt-1 font-medium">
+            <div className="text-xs text-muted-foreground mt-0.5 font-medium">
               {record}
             </div>
           )}
@@ -108,7 +108,7 @@ export function GameCard({
 
         {/* Pick Percentage */}
         {pickPercentage !== undefined && (
-          <div className="w-full mt-2 pt-2 border-t">
+          <div className="w-full mt-1 pt-1 border-t">
             <div className="flex items-center justify-center gap-1 text-xs">
               {isFavorite && <TrendingUp className="w-3 h-3 text-primary" />}
               <span className={cn(
@@ -125,35 +125,22 @@ export function GameCard({
   }
 
   return (
-    <Card className="p-4">
+    <Card className="p-3">
       {/* Game Header */}
-      <div className="flex items-center justify-between gap-2 mb-4 flex-wrap">
+      <div className="flex items-center justify-between gap-2 mb-3 flex-wrap">
         <div className="flex items-center gap-2">
-          {/* Game Status */}
-          <Badge className={cn('text-xs', getGameStatusColor(game.status))}>
-            {game.status === 'upcoming' && <Clock className="w-3 h-3 mr-1" />}
-            {game.status === 'upcoming' ? timeUntilStart : game.status.toUpperCase()}
-          </Badge>
-
-          {/* Network */}
-          {game.network && (
-            <Badge variant="outline" className="text-xs">
-              {game.network}
+          {/* Lock Status */}
+          {isLocked && (
+            <Badge variant="destructive" className="text-xs">
+              <Lock className="w-3 h-3 mr-1" />
+              Locked
             </Badge>
           )}
         </div>
-
-        {/* Lock Status */}
-        {isLocked && (
-          <Badge variant="destructive" className="text-xs">
-            <Lock className="w-3 h-3 mr-1" />
-            Locked
-          </Badge>
-        )}
       </div>
 
       {/* Teams - Side by Side */}
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-3">
         <TeamButton isHome={false} />
         
         <div className="flex flex-col items-center gap-1 text-muted-foreground flex-shrink-0">
@@ -164,16 +151,26 @@ export function GameCard({
         <TeamButton isHome={true} />
       </div>
 
-      {/* Game Time */}
-      <div className="text-xs text-center text-muted-foreground mt-3 pt-3 border-t">
-        {new Date(game.scheduledTime).toLocaleDateString('en-US', {
-          weekday: 'short',
-          month: 'short',
-          day: 'numeric',
-          hour: 'numeric',
-          minute: '2-digit',
-          timeZoneName: 'short',
-        })}
+      {/* Game Time and Network */}
+      <div className="flex items-center justify-center gap-2 mt-2 pt-2 border-t text-xs text-muted-foreground">
+        <span>
+          {new Date(game.scheduledTime).toLocaleDateString('en-US', {
+            weekday: 'short',
+            month: 'short',
+            day: 'numeric',
+            hour: 'numeric',
+            minute: '2-digit',
+            timeZoneName: 'short',
+          })}
+        </span>
+        {game.network && (
+          <>
+            <span>•</span>
+            <Badge variant="outline" className="text-xs px-2 py-0">
+              {game.network}
+            </Badge>
+          </>
+        )}
       </div>
     </Card>
   )

@@ -100,3 +100,25 @@ export function getGamesCompletionPercentage(games: NFLGame[]): number {
   return Math.round((completedGames / games.length) * 100)
 }
 
+/**
+ * Group games by day of the week
+ */
+export function groupGamesByDay(games: NFLGame[]): Record<string, NFLGame[]> {
+  const groups: Record<string, NFLGame[]> = {
+    'Thursday': [],
+    'Sunday': [],
+    'Monday': []
+  }
+
+  games.forEach(game => {
+    const date = new Date(game.scheduledTime)
+    const dayOfWeek = date.toLocaleDateString('en-US', { weekday: 'long' })
+    
+    if (groups[dayOfWeek]) {
+      groups[dayOfWeek].push(game)
+    }
+  })
+
+  return groups
+}
+
