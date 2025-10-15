@@ -56,7 +56,7 @@ export function GameCard({
         onClick={() => canSelect && onSelectTeam(team.id)}
         disabled={isDisabled}
         className={cn(
-          'flex-1 flex flex-col items-center gap-1.5 p-3 rounded-lg border-2 transition-all',
+          'flex-1 flex flex-col items-center gap-1 p-2 rounded-lg border-2 transition-all',
           'hover:shadow-md relative',
           isSelected
             ? 'border-primary bg-primary/10 shadow-md ring-2 ring-primary ring-offset-2'
@@ -85,8 +85,8 @@ export function GameCard({
           </div>
         )}
 
-        {/* Team Logo */}
-        <div className="relative w-12 h-12 flex-shrink-0">
+        {/* Team Logo - Smaller */}
+        <div className="relative w-10 h-10 flex-shrink-0">
           <Image
             src={team.logo || '/svg/default-team.svg'}
             alt={`${team.city} ${team.name}`}
@@ -95,9 +95,9 @@ export function GameCard({
           />
         </div>
 
-        {/* Team Info */}
+        {/* Team Info - More Compact */}
         <div className="text-center w-full">
-          <div className="font-bold text-sm leading-tight">{team.city}</div>
+          <div className="font-bold text-xs leading-tight">{team.city}</div>
           <div className="text-xs text-muted-foreground">{team.name}</div>
           {record && (
             <div className="text-xs text-muted-foreground mt-0.5 font-medium">
@@ -106,16 +106,16 @@ export function GameCard({
           )}
         </div>
 
-        {/* Pick Percentage */}
+        {/* Pick Percentage - More Compact */}
         {pickPercentage !== undefined && (
-          <div className="w-full mt-1 pt-1 border-t">
-            <div className="flex items-center justify-center gap-1 text-xs">
+          <div className="w-full mt-0.5 pt-0.5 border-t">
+            <div className="flex items-center justify-center gap-0.5 text-xs">
               {isFavorite && <TrendingUp className="w-3 h-3 text-primary" />}
               <span className={cn(
-                'font-semibold',
+                'font-semibold text-xs',
                 isFavorite ? 'text-primary' : 'text-muted-foreground'
               )}>
-                {pickPercentage}% picking
+                {pickPercentage}%
               </span>
             </div>
           </div>
@@ -125,9 +125,9 @@ export function GameCard({
   }
 
   return (
-    <Card className="p-3">
-      {/* Game Header */}
-      <div className="flex items-center justify-between gap-2 mb-3 flex-wrap">
+    <div className="w-full">
+      {/* Game Header - Compact */}
+      <div className="flex items-center justify-between gap-2 mb-2">
         <div className="flex items-center gap-2">
           {/* Lock Status */}
           {isLocked && (
@@ -139,39 +139,16 @@ export function GameCard({
         </div>
       </div>
 
-      {/* Teams - Side by Side */}
-      <div className="flex items-center gap-3">
+      {/* Teams - Side by Side - More Horizontal */}
+      <div className="flex items-center gap-2">
         <TeamButton isHome={false} />
         
-        <div className="flex flex-col items-center gap-1 text-muted-foreground flex-shrink-0">
-          <div className="text-sm font-bold">@</div>
+        <div className="flex flex-col items-center gap-0.5 text-muted-foreground flex-shrink-0">
           <div className="text-xs">VS</div>
         </div>
 
         <TeamButton isHome={true} />
       </div>
-
-      {/* Game Time and Network */}
-      <div className="flex items-center justify-center gap-2 mt-2 pt-2 border-t text-xs text-muted-foreground">
-        <span>
-          {new Date(game.scheduledTime).toLocaleDateString('en-US', {
-            weekday: 'short',
-            month: 'short',
-            day: 'numeric',
-            hour: 'numeric',
-            minute: '2-digit',
-            timeZoneName: 'short',
-          })}
-        </span>
-        {game.network && (
-          <>
-            <span>•</span>
-            <Badge variant="outline" className="text-xs px-2 py-0">
-              {game.network}
-            </Badge>
-          </>
-        )}
-      </div>
-    </Card>
+    </div>
   )
 }

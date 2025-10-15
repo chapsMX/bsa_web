@@ -69,11 +69,8 @@ export default function PicksPage() {
           <div className="text-center mb-8 space-y-4">
             <div className="flex items-center justify-center gap-2">
               <Trophy className="w-8 h-8 text-primary" />
-              <h1 className="text-4xl font-bold">Make Your Picks</h1>
+              <h1 className="text-4xl font-bold">NFL Week {POOL_STATS.week} - Make Your Picks</h1>
             </div>
-            <p className="text-muted-foreground text-lg">
-              NFL Week {POOL_STATS.week} - Pick the winner of each game
-            </p>
           </div>
 
           {/* Pool Stats */}
@@ -132,22 +129,22 @@ export default function PicksPage() {
             </div>
           </div>
 
-          {/* Games List - Grouped by Day */}
-          <div className="max-w-4xl mx-auto space-y-6">
+          {/* Games List - Grouped by Day - More Horizontal */}
+          <div className="max-w-6xl mx-auto space-y-4">
             {Object.entries(gamesByDay).map(([day, games]) => {
               if (games.length === 0) return null
               
               return (
-                <div key={day} className="space-y-3">
-                  {/* Day Header */}
-                  <div className="flex items-center gap-3">
-                    <h2 className="text-xl font-bold text-foreground">{day}</h2>
+                <div key={day} className="space-y-2">
+                  {/* Day Header - More Compact */}
+                  <div className="flex items-center gap-2">
+                    <h2 className="text-lg font-bold text-foreground">{day}</h2>
                     <div className="flex-1 h-px bg-border"></div>
-                    <span className="text-sm text-muted-foreground">{games.length} game{games.length !== 1 ? 's' : ''}</span>
+                    <span className="text-xs text-muted-foreground">{games.length} game{games.length !== 1 ? 's' : ''}</span>
                   </div>
                   
-                  {/* Games for this day */}
-                  <div className="space-y-3">
+                  {/* Games for this day - Reduced spacing */}
+                  <div className="space-y-1">
                     {games.map((game) => (
                       <GameCard
                         key={game.id}
