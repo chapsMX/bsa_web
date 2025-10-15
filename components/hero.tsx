@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import Image from "next/image"
 import { ChevronRight, ArrowDown } from "lucide-react"
 
 export function Hero() {
@@ -59,6 +60,17 @@ export function Hero() {
                 <ArrowDown className="w-6 h-6 group-hover:translate-y-1 transition-transform" />
               </Link>
             </Button>
+          </div>
+
+          {/* Built on Base Logo - Centered */}
+          <div className="pt-8 flex justify-center opacity-0 animate-fade-in animation-delay-400">
+            <Image
+              src="/svg/baseBlue.svg"
+              alt="Built on Base"
+              width={160}
+              height={52}
+              priority
+            />
           </div>
         </div>
       </div>

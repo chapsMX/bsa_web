@@ -25,11 +25,11 @@ export function CTASection() {
 
           {/* Main Heading */}
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white">
-            Ready to Start Winning?
+          Ready to Put Your Sports Knowledge to the Test?
           </h2>
           
           <p className="text-xl md:text-2xl opacity-90 leading-relaxed max-w-3xl mx-auto">
-            Make your picks, compete with players worldwide, and win real USDC prizes. Your sports knowledge pays off here.
+          Make your predictions, compete with participants around the world, and earn USDC rewards — all secured on Base.
           </p>
 
           {/* Primary CTA */}
@@ -40,7 +40,7 @@ export function CTASection() {
               className="text-xl px-12 py-8 bg-white text-[#0000FF] hover:bg-white/90 hover:scale-105 transition-all duration-200 shadow-2xl group"
             >
               <Link href="/picks" className="flex items-center gap-2">
-                Start Picking Now
+                Start Predicting Now
                 <ChevronRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>

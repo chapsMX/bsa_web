@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Twitter, MessageCircle, Trophy } from "lucide-react"
 
 export function Footer() {
@@ -14,12 +15,17 @@ export function Footer() {
               <span className="text-foreground">Base Sports Arena</span>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              The first fully onchain sports picks platform. Compete, predict, and win real rewards on Base blockchain.
+            An onchain platform where fans participate in predictive challenges around the outcomes of weekly sports events.
             </p>
-            {/* Built on Base Badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-2 bg-[#0000FF]/10 rounded-lg border border-[#0000FF]/20">
-              <div className="w-2 h-2 bg-[#0000FF] rounded-full"></div>
-              <span className="text-sm font-semibold text-[#0000FF]">Built on Base</span>
+            {/* Built on Base Logo */}
+            <div className="mt-4">
+              <Image
+                src="/svg/baseBlack.svg"
+                alt="Built on Base"
+                width={120}
+                height={40}
+                className="dark:invert"
+              />
             </div>
           </div>
 
