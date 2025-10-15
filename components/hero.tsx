@@ -32,7 +32,7 @@ export function Hero() {
 
           {/* Description - Animated with delay - Larger Text */}
           <p className="text-3xl md:text-2xl lg:text-3xl text-foreground text-[#FFFFFF] mx-auto leading-relaxed text-pretty opacity-0 animate-fade-in-up animation-delay-200">
-            Base Sports Arena is the first fully onchain sports picks platform where fans compete to predict the outcomes of weekly games and win real rewards. Pick your winners, join pools, and track results — all secured and transparent on the Base blockchain.
+          Base Sports Arena is an onchain platform where fans participate in predictive challenges around the outcomes of weekly sports events. Choose the teams you believe will win, join community pools, and follow the results — all secured, transparent, and verifiable on the Base blockchain.
           </p>
 
           {/* CTAs - Animated with delay - Larger Size */}

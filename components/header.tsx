@@ -86,10 +86,10 @@ export function Header() {
             Farcaster
           </Link>
           <Link
-            href="/app"
+            href="/picks"
             className="text-sm font-medium bg-primary text-primary-foreground px-4 py-2 rounded-lg hover:opacity-90 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4"
           >
-            App
+            Launch App
           </Link>
         </nav>
 
@@ -191,7 +191,7 @@ export function Header() {
 
               {/* CTA Button */}
               <Link
-                href="/app"
+                href="/picks"
                 onClick={closeMobileMenu}
                 className="mt-3 text-base font-medium bg-primary text-primary-foreground px-6 py-3 rounded-lg hover:opacity-90 transition-opacity text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4"
               >

@@ -9,17 +9,17 @@ const steps = [
     icon: Trophy,
     title: "Pick Your League",
     description:
-      "Pick your favorite league — NFL, NBA, Premier League, and more — and join a pool for the current week.",
+      "Choose the sports league you want to follow — NFL, NBA, Premier League, and more — and join a predictive challenge for the current week.",
   },
   {
     icon: Target,
-    title: "Pick your Winners",
-    description: "For each game, pick which team you think will win. In soccer leagues, you can also choose a draw.",
+    title: "Predict the Outcomes",
+    description: "For each scheduled game, make your prediction about which team you believe will win. In leagues where draws are possible, you can also select that option.",
   },
   {
     icon: Activity,
-    title: "Track Your Picks",
-    description: "Follow real-time results and see how your predictions stack up against other players.",
+    title: "Track Your Predictions",
+    description: "Follow real-time results and see how your predictions perform against other participants as the games unfold.",
   },
 ]
 
@@ -97,10 +97,10 @@ export function HowItWorks() {
       <div className="mt-6 bg-[#0000FF] py-10">
         <div className="container mx-auto px-4 text-center space-y-6">
           <h3 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white">
-            Win USDC on Base
+          Get Rewarded for Your Sports Knowledge
           </h3>
           <p className="text-xl md:text-2xl text-white max-w-4xl mx-auto leading-relaxed">
-            The participants with the most correct picks win the prize pool — paid in USDC directly to your wallet.
+          Turn your predictions into real rewards. Top performers receive USDC payouts directly in their Base wallets — no middlemen, no delays.
           </p>
         </div>
       </div>

@@ -149,3 +149,4 @@ export const WEEKLY_POOL_STATS = [
   { week: 7, participants: 847, prizePool: 8470, winner: null, winnerPayout: null }, // Current week
 ]
 
+
