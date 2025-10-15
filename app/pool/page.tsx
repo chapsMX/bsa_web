@@ -84,7 +84,7 @@ export default function PoolPage() {
             <div>
               <Award className="w-6 h-6 mx-auto mb-2 text-primary" />
               <div className="text-2xl md:text-3xl font-bold text-primary">
-                2,541
+                {currentWeekStats.firstPlacePrize.toLocaleString()}
               </div>
               <div className="text-sm text-muted-foreground">1st Place (USDC)</div>
             </div>
@@ -99,29 +99,29 @@ export default function PoolPage() {
               <Crown className="w-8 h-8 text-yellow-500" />
               <div>
                 <div className="text-sm text-muted-foreground">1st Place</div>
-                <div className="text-xl font-bold">2,541 USDC</div>
-                <div className="text-xs text-muted-foreground">30% of pool</div>
+                <div className="text-xl font-bold">{currentWeekStats.firstPlacePrize.toLocaleString()} USDC</div>
+                <div className="text-xs text-muted-foreground">50% of pool</div>
               </div>
             </div>
             <div className="flex items-center gap-3 p-4 rounded-lg bg-gradient-to-r from-gray-400/10 to-gray-400/5 border border-gray-400/20">
               <Medal className="w-8 h-8 text-gray-400" />
               <div>
                 <div className="text-sm text-muted-foreground">2nd Place</div>
-                <div className="text-xl font-bold">1,694 USDC</div>
-                <div className="text-xs text-muted-foreground">20% of pool</div>
+                <div className="text-xl font-bold">{currentWeekStats.secondPlacePrize.toLocaleString()} USDC</div>
+                <div className="text-xs text-muted-foreground">25% of pool</div>
               </div>
             </div>
             <div className="flex items-center gap-3 p-4 rounded-lg bg-gradient-to-r from-amber-600/10 to-amber-600/5 border border-amber-600/20">
               <Medal className="w-8 h-8 text-amber-600" />
               <div>
                 <div className="text-sm text-muted-foreground">3rd Place</div>
-                <div className="text-xl font-bold">1,270 USDC</div>
-                <div className="text-xs text-muted-foreground">15% of pool</div>
+                <div className="text-xl font-bold">{currentWeekStats.thirdPlacePrize.toLocaleString()} USDC</div>
+                <div className="text-xs text-muted-foreground">10% of pool</div>
               </div>
             </div>
           </div>
           <div className="mt-4 text-sm text-muted-foreground text-center">
-            Top 20 players share the prize pool • Full payout structure in{' '}
+            Remaining 15% goes to protocol incentives, referral fees, and operational costs • Full payout structure in{' '}
             <Link href="/" className="text-primary hover:underline">
               FAQ
             </Link>

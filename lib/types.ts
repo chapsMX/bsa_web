@@ -62,6 +62,10 @@ export type PoolStats = {
   entryFee: number // In USDC
   gamesCount: number
   lockTime?: string // ISO 8601 date string
+  firstPlacePrize: number // In USDC
+  secondPlacePrize: number // In USDC
+  thirdPlacePrize: number // In USDC
+  remainingPrize: number // In USDC (protocol incentives, referral fees, etc.)
 }
 
 // Leaderboard Entry

@@ -452,4 +452,8 @@ export const POOL_STATS: PoolStats = {
   entryFee: 10,
   gamesCount: NFL_WEEK_7_GAMES.length,
   lockTime: '2024-10-17T00:15:00Z',
+  firstPlacePrize: 4235, // 50% of pool
+  secondPlacePrize: 2117.5, // 25% of pool
+  thirdPlacePrize: 847, // 10% of pool
+  remainingPrize: 1270.5, // 15% for protocol incentives, referral fees, etc.
 }
